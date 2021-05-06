@@ -405,7 +405,7 @@ iframe.dictionaries-card.dictionaries-card-minimal {
                 <img width="11" alt="" src="./平安成电智慧通行入_files/yonghu.3c08ded6.png" data-v-78b386c8="">
                 用户姓名
               </span>
-              <span class="name" id="realname" data-v-78b386c8="">程岩松</span>
+              <span class="name" id="realname" data-v-78b386c8=""></span>
             </div>
             <div class="info" data-v-78b386c8="">
               <span data-v-78b386c8="">
@@ -442,6 +442,19 @@ iframe.dictionaries-card.dictionaries-card-minimal {
     <input type="button" value="确认" onclick="name_in()">
   </div> -->
 <script type="text/javascript">
+var user_name;
+function getQueryVariable(variable)
+{
+       var query = decodeURI(window.location.search.substring(1));
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+
+}
+user_name = getQueryVariable("name");
 function getTime(){
   var myDate = new Date();
   var myYear = myDate.getFullYear();
@@ -472,7 +485,7 @@ function name_in(){
   var name = document.getElementById("realname");
   //var app = document.getElementById("app");
   //var name_get =document.getElementById("name_get");
-  name.innerHTML = '程岩松';
+  name.innerHTML = user_name;
   //name_get.style.display = "none";
   //app.style.display = "block";
 }
